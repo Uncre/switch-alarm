@@ -1,0 +1,13 @@
+[Unit]
+Description=switch-alarm web alarm
+After=pipewire.service wireplumber.service
+
+[Service]
+WorkingDirectory=%h/switch-alarm
+ExecStart=/usr/bin/python3 %h/switch-alarm/app.py
+Restart=always
+RestartSec=5
+Environment=XDG_RUNTIME_DIR=/run/user/%U
+
+[Install]
+WantedBy=default.target
